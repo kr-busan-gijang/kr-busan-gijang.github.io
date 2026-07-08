@@ -267,6 +267,42 @@ body { padding-top: var(--cg-strip-h); }
 .cg-colophon-note { margin: 4px 0 0; color: #9a9aa8; }
 @media (max-width: 640px) { .cg-strip-label { display: none; } }
 @media (prefers-reduced-motion: reduce) { .cg-skip { transition: none; } }
+
+/* ---- Mobile reading view (touch / small screens) ------------------------------------- */
+/* The immersive per-구 template is desktop-only. On touch devices and narrow screens the
+   .cg-read view is shown instead — it uses only safe, high-contrast CSS so text can never
+   go invisible on iOS Safari (no background-clip:text, backdrop-filter, 100vh, :hover-gated
+   reveals, or mix-blend-mode). Fully namespaced + generator-controlled. */
+.cg-read { display: none; }
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  /* Neutralise immersive templates that lock scrolling / lock the viewport on <body>. */
+  html, body { overflow-x: hidden !important; overflow-y: auto !important; height: auto !important;
+    min-height: 0 !important; position: static !important; touch-action: auto !important; background: #ffffff !important; }
+  .cg-immersive { display: none !important; }
+  .cg-read { display: block; }
+}
+.cg-read { max-width: 720px; margin: 0 auto; padding: 20px 18px 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color: #17171f; background: #ffffff; line-height: 1.75; -webkit-text-size-adjust: 100%; }
+.cg-read * { max-width: 100%; box-sizing: border-box; }
+.cg-read-head { padding: 8px 0 16px; border-bottom: 3px solid var(--cg-ra, #2d5bff); margin-bottom: 20px; }
+.cg-read-eyebrow { margin: 0 0 4px; color: var(--cg-rd, #333); font-weight: 700; font-size: 15px; letter-spacing: .02em; }
+.cg-read-head h1 { margin: 0; font-size: clamp(30px, 8vw, 40px); line-height: 1.15; color: #14141c; font-weight: 800; }
+.cg-read h2 { font-size: 20px; margin: 30px 0 10px; padding-left: 11px; color: #14141c; font-weight: 700;
+  border-left: 5px solid var(--cg-ra, #2d5bff); }
+.cg-read p { margin: 0 0 12px; font-size: 17px; color: #23232d; }
+.cg-read section { margin: 0; }
+.cg-read ul { margin: 8px 0 0; padding-left: 20px; }
+.cg-read li { margin: 8px 0; font-size: 16px; color: #23232d; }
+.cg-read li strong { color: #111119; font-weight: 700; }
+.cg-read .facts, .cg-read .symbols { list-style: none; padding: 14px 16px; margin: 8px 0 0;
+  background: #f5f6fa; border: 1px solid #e6e8f0; border-radius: 12px; }
+.cg-read .faq details { border: 1px solid #e6e8f0; border-radius: 10px; padding: 10px 14px; margin: 8px 0; background: #fbfbfd; }
+.cg-read .faq summary { cursor: pointer; font-weight: 700; font-size: 16px; color: #14141c; }
+.cg-read .faq details p { margin: 8px 0 2px; color: #44454f; }
+.cg-read a { color: #1a46d8; word-break: break-word; }
+.cg-read .sources { font-size: 14px; color: #55565f; }
+.cg-read .sources a { color: #3a5bd0; }
 </style>
 </head>
 <body>
@@ -275,6 +311,7 @@ body { padding-top: var(--cg-strip-h); }
     <span class="cg-ad">AD</span><span class="cg-strip-label">후원 파트너</span><span class="cg-strip-list"><a class="cg-strip-item" href="https://ikoffices.com" rel="sponsored noopener" target="_blank">일광오피스</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://mobidicsaju.com" rel="sponsored noopener" target="_blank">모비딕 사주</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://www.foodskorea.com/" rel="sponsored noopener" target="_blank">전국팔도 식품도감</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://myflowmakers.com" rel="sponsored noopener" target="_blank">마이플로우메이커스</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://yeonlijispace.com" rel="sponsored noopener" target="_blank">연리지 인테리어</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://yeonliji.io" rel="sponsored noopener" target="_blank">주식회사 연리지</a><span class="cg-strip-dot" aria-hidden="true">·</span><span class="cg-strip-item cg-strip-text">세무·법률 자문</span></span>
   </aside>
   <div id="cg-main" tabindex="-1"></div>
+  <div class="cg-immersive">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
@@ -801,6 +838,130 @@ body { padding-top: var(--cg-strip-h); }
   }
 })();
 </script>
+  </div>
+  <main class="cg-read" id="cg-read" role="main" lang="ko" style="--cg-ra:#96ab2b;--cg-ra2:#61d039;--cg-rd:#4d5719">
+    <header class="cg-read-head">
+      <p class="cg-read-eyebrow">부산광역시</p>
+      <h1>기장군</h1>
+    </header>
+    <div class="cg-read-body">
+      <section id="r-intro">
+        <h2>지역 소개</h2>
+        <p>기장군은 부산광역시 유일의 군(郡) 단위 기초자치단체로, 동해와 맞닿은 긴 해안선을 따라 어촌과 신도시가 공존하는 독특한 지역입니다. 대변항에서 갓 잡아 올린 멸치와 미역, 다시마가 밥상에 오르는 수산의 고장이자, 고리원자력발전소와 정관·일광 신도시가 들어선 산업·주거 복합 지역이기도 합니다. 해동용궁사와 죽성성당, 오시리아 관광단지처럼 바다를 배경으로 한 명소가 이어져 한 해 수백만 명이 찾는 부산 동부의 관문 역할을 합니다. 1995년 부산광역시로 편입되며 옛 기장현의 이름을 되살린 이곳은 전통 어업과 첨단 산업, 관광이 한자리에서 만나는 보기 드문 고장입니다. 베틀을 차린 형국이라 일컬어지는 지형 위에서 옛 정취와 새로운 도시의 활력이 나란히 자라나고 있습니다.</p>
+      </section>
+      <section id="r-facts">
+        <h2>주요 통계</h2>
+        <ul class="facts">
+          <li>인구: 약 174,880명 (2025)</li>
+          <li>면적: 218.32 km²</li>
+          <li>신설: 1995년 3월 1일</li>
+        </ul>
+      </section>
+      <section id="r-history">
+        <h2>역사</h2>
+        <p>기장의 옛 이름은 삼한시대 갑화량곡(甲火良谷)으로 전해지며, 신라 경덕왕 16년(757년) 지방 제도 개편 때 &#x27;기장현(機張縣)&#x27;으로 고쳐 불리기 시작했습니다. 베틀 기(機)와 베풀 장(張) 자를 쓴 이 지명은 산과 물이 어우러진 지세가 마치 베틀을 차려놓은 듯하다는 데서 유래했다고 전합니다. 조선시대에는 기장현으로 독립 현을 이루었으나 1914년 행정구역 통폐합으로 동래군에 편입되었고, 1973년에는 경상남도 양산군에 속하게 되었습니다. 1995년 3월 1일 지방자치제 실시와 함께 양산군에서 분리되어 부산광역시 기장군으로 승격, 오랜만에 옛 고을의 이름을 되찾았습니다. 개항기 흥선대원군이 세운 대변항 척화비, 고산 윤선도가 유배 시절 머물렀다는 죽성리 황학대 등은 이 땅에 새겨진 역사의 흔적을 오늘까지 전해줍니다.</p>
+      </section>
+      <section id="r-geography">
+        <h2>지리·자연환경</h2>
+        <p>기장군은 부산광역시의 최북동단에 자리해 동쪽으로는 동해에 면하고, 서쪽은 경상남도 양산시, 북쪽은 울산광역시, 남쪽은 부산 해운대구와 접합니다. 달음산(587m)과 불광산, 함박산 등 태백산맥 끝자락의 산줄기가 내륙을 병풍처럼 두르고, 그 사이를 좌광천과 일광천, 수영강 상류가 흘러 동해로 빠져나갑니다. 해안선을 따라서는 일광해수욕장과 임랑해수욕장, 국가어항인 대변항, 그리고 오시리아 해안의 갯바위 절경이 이어져 굴곡진 리아스식 지형을 이룹니다. 죽성리 앞바다에서는 맑은 날 대마도가 55km 거리로 조망될 만큼 시야가 트여 있으며, 오랑대와 시랑대 같은 기암 해안은 일출 명소로 이름이 높습니다. 내륙의 철마면 일대는 산지와 계곡을 품어 도심과 다른 전원 풍경을 간직하고 있습니다.</p>
+      </section>
+      <section id="r-characteristics">
+        <h2>지역 특징</h2>
+        <p>기장군은 면적 약 218.32㎢에 인구 약 17만 5천 명이 거주하는, 부산에서 유일하게 &#x27;군&#x27; 지위를 유지하는 자치단체입니다. 4개 읍(기장·장안·정관·일광)과 1개 면(철마)으로 이루어져 있으며, 정관신도시와 일광신도시 개발로 인구가 꾸준히 늘어 도농복합의 성격을 뚜렷이 보입니다. 산업 면에서는 대변항을 중심으로 한 멸치·미역·다시마 어업이 전국 멸치 어획고의 상당 부분을 차지하는 수산 거점인 동시에, 장안읍에 고리원자력발전소와 동남권원자력의학원이 위치한 에너지·의료 산업 축이기도 합니다. 오시리아 관광단지에는 롯데월드 어드벤처 부산, 아난티코브, 이케아 등이 들어서 관광·상업 기능이 집적되었습니다. 전통 어촌과 첨단 원자력, 대규모 관광·주거 개발이 한 지역 안에서 공존한다는 점이 기장군을 부산의 다른 자치구와 구별짓는 가장 큰 특징입니다.</p>
+      </section>
+      <section id="r-landmarks">
+        <h2>대표 명소</h2>
+        <ul>
+          <li><strong>해동용궁사</strong> — 부산 기장군 시랑리 바닷가 절벽 위에 자리한 사찰로, 물 위에 떠 있는 듯한 경관과 새해 일출 명소로 전국적으로 이름난 기장의 대표 관광지입니다.</li>
+          <li><strong>오시리아 관광단지</strong> — 옛 동부산관광단지가 2016년 개칭된 대규모 복합 단지로, 롯데월드 어드벤처 부산·아난티코브·이케아 등이 들어서 쇼핑·레저·숙박을 한자리에서 즐길 수 있습니다.</li>
+          <li><strong>죽성성당</strong> — 기장읍 죽성리 어촌마을 언덕에 선 이국적인 성당으로, 2009년 SBS 드라마 &#x27;드림&#x27; 세트장으로 지어진 뒤 바다를 배경으로 한 포토 명소가 되었습니다.</li>
+          <li><strong>대변항</strong> — 국가어항으로 지정된 기장의 대표 항구로, 전국 멸치 어획고의 상당 부분을 처리하는 멸치 집산지이자 갓 잡은 수산물을 파는 활어·건어물 거리로 붐빕니다.</li>
+        </ul>
+      </section>
+      <section id="r-heritage">
+        <h2>문화유산·문화시설</h2>
+        <ul>
+          <li><strong>기장 대변항 척화비</strong> — 흥선대원군이 통상 수교 거부 의지를 새겨 세운 화강암 비석으로, 일제강점기 항만 축조 때 바다에 버려졌다가 1947년경 마을 청년들이 인양해 다시 세운 근대사의 유물입니다.</li>
+          <li><strong>죽성리 황학대와 왜성</strong> — 고산 윤선도가 유배 시절 머물며 시를 지었다는 황학대와, 임진왜란 때 일본군이 쌓은 죽성리 왜성이 남아 있어 조선 중기의 역사와 문학을 함께 전합니다.</li>
+          <li><strong>기장멸치축제</strong> — 봄철 대변항 일원에서 열리는 기장의 대표 축제로, 멸치회 무료 시식과 수산물 경매, 낚싯배 승선 체험 등으로 전국의 관광객을 불러 모읍니다.</li>
+          <li><strong>장안사</strong> — 장안읍 불광산 자락에 673년 원효대사가 창건했다고 전하는 유서 깊은 고찰로, 대웅전 등 소중한 불교 문화유산과 고즈넉한 산사의 정취를 간직하고 있습니다.</li>
+        </ul>
+      </section>
+      <section id="r-nature">
+        <h2>자연·휴식</h2>
+        <ul>
+          <li><strong>일광해수욕장</strong> — 고려시대 정몽주 등 명사들이 유람했다고 전하는 절경으로, 오영수의 단편소설 &#x27;갯마을&#x27;과 동명 영화의 배경이 된 아늑한 백사장이 펼쳐집니다.</li>
+          <li><strong>임랑해수욕장</strong> — 기장 최북단에 자리한 해수욕장으로, 1km 가까운 하얀 모래사장과 울창한 송림, 달빛에 반짝이는 파도가 어우러진 이름 그대로의 풍경을 자랑합니다.</li>
+          <li><strong>오시리아 해안산책로</strong> — 동암마을에서 아난티코브·거북바위·오랑대·용왕단으로 이어지는 부산 대표 해안길로, 2019년 대한민국 조경대상 문화체육부 장관상을 받은 일출·야경 명소입니다.</li>
+          <li><strong>달음산</strong> — 해발 587m로 기장을 대표하는 산이며, 정상 취봉에서 동해와 기장 들녘을 한눈에 굽어볼 수 있어 지역 등산객이 즐겨 찾는 산행지입니다.</li>
+        </ul>
+      </section>
+      <section id="r-transport">
+        <h2>교통</h2>
+        <p>기장군의 대중교통 축은 부산과 울산을 잇는 동해선 광역전철로, 좌천·기장·일광·오시리아 방면 역들이 군내 주요 생활권과 관광지를 연결합니다. 특히 오시리아역은 오시리아 관광단지와 해동용궁사 관광객을 실어 나르는 관문 역할을 하며, 정관신도시 주민은 좌천역을 주로 이용합니다. 도로는 동해고속도로(고속국도 65호선)가 남북으로 관통해 부산 도심과 울산·경주로의 이동을 빠르게 하고, 국도 31호선과 해안을 따라가는 해맞이로가 어촌·해수욕장 일대를 잇습니다. 부산 도심에서는 광안대로와 장산로를 거쳐 승용차로 접근할 수 있으며, 기장읍·정관읍을 오가는 시내버스망도 촘촘히 편성되어 있습니다. 정관신도시와 도심을 잇는 추가 철도 노선 논의가 이어지며 교통 접근성이 꾸준히 개선되고 있습니다.</p>
+      </section>
+      <section id="r-symbols">
+        <h2>지역 상징</h2>
+        <ul class="symbols">
+          <li>구화(꽃): 진달래</li>
+          <li>구목(나무): 해송</li>
+          <li>구조(새): 갈매기</li>
+        </ul>
+      </section>
+      <section id="r-faq">
+        <h2>자주 묻는 질문</h2>
+        <div class="faq">
+          <details>
+            <summary>기장군은 부산에서 어떤 위치에 있나요?</summary>
+            <p>부산광역시 최북동단에 자리해 동쪽으로 동해에 면하고, 서쪽은 양산시, 북쪽은 울산광역시, 남쪽은 해운대구와 접합니다.</p>
+          </details>
+          <details>
+            <summary>기장군은 왜 &#x27;구&#x27;가 아니라 &#x27;군&#x27;인가요?</summary>
+            <p>기장군은 옛 기장현의 전통을 이어 1995년 부산에 편입되면서 군으로 승격되었으며, 부산에서 유일하게 군 지위를 유지하는 도농복합 자치단체입니다.</p>
+          </details>
+          <details>
+            <summary>기장 여행에서 꼭 가봐야 할 명소는 어디인가요?</summary>
+            <p>바다 위 사찰인 해동용궁사, 롯데월드가 있는 오시리아 관광단지, 이국적인 죽성성당, 멸치로 유명한 대변항이 대표적입니다.</p>
+          </details>
+          <details>
+            <summary>기장의 특산물과 먹거리는 무엇인가요?</summary>
+            <p>대변항을 중심으로 한 멸치가 가장 유명하며, 청정 동해에서 나는 미역과 다시마, 갓 잡은 활어회도 기장을 대표하는 먹거리입니다.</p>
+          </details>
+          <details>
+            <summary>대중교통으로 기장에 가려면 어떻게 하나요?</summary>
+            <p>동해선 광역전철을 타고 기장역·일광역·오시리아역 등에서 내리면 되며, 부산 도심에서는 동해고속도로나 시내버스로도 접근할 수 있습니다.</p>
+          </details>
+          <details>
+            <summary>기장멸치축제는 언제 열리나요?</summary>
+            <p>매년 봄철 대변항 일원에서 열리며, 멸치회 시식과 수산물 경매, 낚싯배 체험 등 다양한 프로그램을 즐길 수 있습니다.</p>
+          </details>
+        </div>
+      </section>
+      <section id="r-links">
+        <h2>공식 링크</h2>
+        <ul>
+          <li><a href="https://www.gijang.go.kr" rel="noopener">기장군청 공식 홈페이지</a></li>
+          <li><a href="https://www.gijang.go.kr/tour/index.gijang" rel="noopener">기장군 문화관광</a></li>
+        </ul>
+      </section>
+      <section id="r-github">
+        <h2>GitHub</h2>
+        <ul>
+          <li><a href="https://github.com/kr-busan-gijang" rel="noopener">GitHub 조직: kr-busan-gijang</a></li>
+          <li><a href="https://github.com/kr-busan-gijang/kr-busan-gijang.github.io" rel="noopener">이 사이트 저장소</a></li>
+        </ul>
+      </section>
+      <section id="r-sources">
+        <h2>출처</h2>
+        <ul class="sources">
+          <li><a href="https://ko.wikipedia.org/wiki/%EA%B8%B0%EC%9E%A5%EA%B5%B0" rel="noopener">기장군 - 위키백과</a> (조회 2026-07-08)</li>
+          <li><a href="https://www.gijang.go.kr/tour/index.gijang" rel="noopener">기장군 문화관광 - 관광명소·기장8경·기장멸치축제</a> (조회 2026-07-08)</li>
+          <li><a href="https://www.busan.go.kr/news/storyreport/view?dataNo=67132" rel="noopener">오시리아 해안산책로 - 부산광역시 스토리리포트</a> (조회 2026-07-08)</li>
+          <li><a href="https://osiria.bmc.busan.kr/osiria/contents.do?mId=0101000000" rel="noopener">오시리아관광단지 개요 - 부산도시공사</a> (조회 2026-07-08)</li>
+        </ul>
+      </section>
+    </div>
+  </main>
   <aside class="cg-sponsors" aria-label="후원 파트너 상세">
     <p class="cg-spon-head"><span class="cg-ad">AD</span> 후원 파트너 <small>이 링크는 광고이며 편집상의 추천이 아닙니다 (rel=&quot;sponsored&quot;).</small></p>
     <ul class="cg-spon-grid">
